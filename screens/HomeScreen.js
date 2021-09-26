@@ -1,6 +1,13 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, StatusBar } from 'react-native';
+import { View, StyleSheet, ScrollView,Image} from 'react-native';
 import { useTheme } from '@react-navigation/native';
+
+const images=[
+  {id:1,url:require('../assets/1.jpg')},
+  {id:1,url:require('../assets/2.jpg')},
+  {id:1,url:require('../assets/3.jpg')},
+  {id:1,url:require('../assets/4.jpg')},
+]
 
 const HomeScreen = ({navigation}) => {
 
@@ -9,13 +16,20 @@ const HomeScreen = ({navigation}) => {
   const theme = useTheme();
   
     return (
-      <View style={styles.container}>
-        <StatusBar barStyle= { theme.dark ? "light-content" : "dark-content" }/>
-        <Text style={{color: colors.text}}>Home Screen Sasindu </Text>
-      {/* <Button
-        title="Go to details screen"
-        onPress={() => navigation.navigate("Details")}
-      /> */}
+      <View >
+        <View style={styles.header}>
+        </View>
+        <ScrollView>
+          {
+            images.map(image=>(
+              <View  key={image.id} style={{height:400,margin:20}}>
+                  <Image source={image.url} style={styles.imageStyle} />
+              </View>
+            ))
+          }
+
+        </ScrollView>
+  
       </View>
     );
 };
@@ -23,9 +37,22 @@ const HomeScreen = ({navigation}) => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1, 
-    alignItems: 'center', 
-    justifyContent: 'center'
+
+  header:{
+    position:'absolute',
+    left:0,
+    right:0,
+    top:0,
+    height:70,
+    backgroundColor:'grey',
+    zIndex:1000,
+    elevation:1000
   },
+  imageStyle:{
+    flex:1,
+    height:null,
+    width:null,
+    borderRadius:10
+
+  }
 });

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "979742845768",
+    "firebase_url": "https://jourme-6c288-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "jourme-6c288",
+    "storage_bucket": "jourme-6c288.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:979742845768:android:9a92c01918edf0cb8da17d",
+        "android_client_info": {
+          "package_name": "com.jourmey"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "979742845768-ei9gq6ajk0ta9048308js3hgenessndb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jourmey",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "979742845768-8ds0gaem64lelkmoju6jq9vrjcgbat3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFX63MXsO92wHRJs5zkfQPxnp_EStiapw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "979742845768-8ds0gaem64lelkmoju6jq9vrjcgbat3m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

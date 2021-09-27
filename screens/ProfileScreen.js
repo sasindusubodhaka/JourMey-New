@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+const cover= require('../assets/1.jpg')
 import {
   StyleSheet,
   Text,
@@ -10,8 +11,9 @@ import {
 const ProfileScreen=()=> {
 
     return (
-      <View style={styles.container}>
-          <View style={styles.header}></View>
+      <View style={styles.container}>          
+           <Image style={{ height:200}} source={require('../assets/1.jpg')}/>
+         
           <Image style={styles.avatar} source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIeeRxwkwe4aaZ2p3JAI8d1fMbxEOhkd4vvQ&usqp=CAU'}}/>
           <View style={styles.body}>
             <View style={styles.bodyContent}>
@@ -20,10 +22,10 @@ const ProfileScreen=()=> {
               <Text style={styles.description}>Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum electram expetendis, omittam deseruisse consequuntur ius an,</Text>
               
               <TouchableOpacity style={styles.buttonContainer}>
-                <Text>Opcion 1</Text>  
+                <Text>Sasindu Subodhaka</Text>  
               </TouchableOpacity>              
               <TouchableOpacity style={styles.buttonContainer}>
-                <Text>Opcion 2</Text> 
+                <Text>Balangoda</Text> 
               </TouchableOpacity>
             </View>
         </View>
@@ -34,9 +36,11 @@ const ProfileScreen=()=> {
 export default ProfileScreen;
 
 const styles = StyleSheet.create({
-  header:{
-    backgroundColor: "#00BFFF",
+  image:{
+    // backgroundColor: "#00FF00",
     height:200,
+    
+    
   },
   avatar: {
     width: 130,

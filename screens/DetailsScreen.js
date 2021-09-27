@@ -28,7 +28,7 @@ const DetailsScreen = ({ navigation }) => {
 
   return (
     <View style={styles.main}>
-      <Text style={styles.title}>Add Items </Text>
+      <Text style={styles.title}>Upload New Image </Text>
       <TextInput style={styles.itemInput} onChangeText={text => onChangeText(text)} />
       <TouchableHighlight
         style={styles.button}

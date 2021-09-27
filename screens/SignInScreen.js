@@ -114,9 +114,9 @@ const SignInScreen = ({navigation}) => {
 
     return (
       <View style={styles.container}>
-          <StatusBar backgroundColor='#009387' barStyle="light-content"/>
+          <StatusBar backgroundColor='#006994' barStyle="light-content"/>
         <View style={styles.header}>
-            <Text style={styles.text_header}>Welcome!</Text>
+            <Text style={styles.text_header}>Welcome to JourMey!</Text>
         </View>
         <Animatable.View 
             animation="fadeInUpBig"
@@ -149,7 +149,7 @@ const SignInScreen = ({navigation}) => {
                 >
                     <Feather 
                         name="check-circle"
-                        color="green"
+                        color="blue"
                         size={20}
                     />
                 </Animatable.View>
@@ -216,7 +216,7 @@ const SignInScreen = ({navigation}) => {
                     onPress={() => {loginHandle( data.username, data.password )}}
                 >
                 <LinearGradient
-                    colors={['#08d4c4', '#01ab9d']}
+                    colors={['#08d4c4', '#006994']}
                     style={styles.signIn}
                 >
                     <Text style={[styles.textSign, {
@@ -228,7 +228,7 @@ const SignInScreen = ({navigation}) => {
                 <TouchableOpacity
                     onPress={() => navigation.navigate('SignUpScreen')}
                     style={[styles.signIn, {
-                        borderColor: '#009387',
+                        borderColor: '#006994',
                         borderWidth: 1,
                         marginTop: 15
                     }]}
@@ -248,7 +248,7 @@ export default SignInScreen;
 const styles = StyleSheet.create({
     container: {
       flex: 1, 
-      backgroundColor: '#009387'
+      backgroundColor: '#006994'
     },
     header: {
         flex: 1,

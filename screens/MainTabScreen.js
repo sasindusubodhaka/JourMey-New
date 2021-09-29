@@ -24,7 +24,7 @@ const MainTabScreen = () => (
       component={HomeScreen}
       options={{
         tabBarLabel: 'Home',
-        tabBarColor: '#1f65ff',
+        tabBarColor: '#006994',
         tabBarIcon: ({ color }) => (
           <Icon name="ios-home" color={color} size={26} />
         ),
@@ -57,7 +57,7 @@ const MainTabScreen = () => (
       component={ExploreScreen}
       options={{
         tabBarLabel: 'FAQ',
-        tabBarColor: '#d02860',
+        tabBarColor: '#006994',
         tabBarIcon: ({ color }) => (
           <Icon name="ios-document" color={color} size={26} />
         ),

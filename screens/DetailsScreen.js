@@ -1,44 +1,65 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet ,Alert} from 'react-native';
-import { TextInput, Button } from 'react-native-paper';
+import { View, Text, StyleSheet, Alert } from 'react-native';
+import { IconButton, TextInput ,Button} from 'react-native-paper';
 import firestore from '@react-native-firebase/firestore';
 import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
-
+import * as ImagePicker from 'react-native-image-picker'
 
 let addItem = item => {
   // Alert.alert(item);
   firestore().collection('Items').add({
-    
-    name:item
-  }).then(function(){
+    name: item
+  }).then(function () {
     Alert.alert('sff')
-  }).catch((err)=>{
-      console.log("error",err)
+  }).catch((err) => {
+    console.log("error", err)
   })
 
 }
 const DetailsScreen = ({ navigation }) => {
 
   const [name, onChangeText] = React.useState('');
+  const [photo, setPhoto] = useState('');
 
-  const handleSubmit=()=>{
+  const handleChoosePhoto = () => {
+    const option = {
+      noData: true
+    };
+    ImagePicker.launchImageLibrary(option, responce => {
+      console.log("responce", responce)
+      // if (responce.uri) {
+      setPhoto(responce)
+      // }
+    })
+  }
+
+  const handleSubmit = () => {
     addItem(name);
     // Alert.alert('Item saved successfully')
   }
 
   return (
     <View style={styles.main}>
-      <Text style={styles.title}>Upload New Image </Text>
-      <TextInput style={styles.itemInput} onChangeText={text => onChangeText(text)} />
-      <TouchableHighlight
-        style={styles.button}
-        underlayColor="white"
+      <Text style={styles.title}>Upload a New Image </Text>
+      <View>
+        {
+          // photo && (
+          //  <Image source={photo.uri}
+          //  style={{width:300,height:300}}
+          // />)
+        }
+
+        <Button title="Choose a Photo" style={styles.imageButton} OnPress={handleChoosePhoto} >
+          <Text style={{color:'white'}}>Choose an image</Text></Button>
+      </View >
+
+      <TextInput style={styles.itemInput} onChangeText={text => onChangeText(text)} placeholder="Add a description" />
+
+      <Button     
+        style={styles.addButton}       
         onPress={handleSubmit}
-      >
-        <Text style={styles.buttonText}>Add</Text>
-      </TouchableHighlight>
-
-
+      ><Text style={{color:'white'}}>Add</Text>
+      </Button>
     </View>
   );
 };
@@ -52,7 +73,7 @@ const styles = StyleSheet.create({
     padding: 30,
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: '#6565fc'
+    backgroundColor: '#ffffff'
   },
   title: {
     marginBottom: 20,
@@ -63,29 +84,21 @@ const styles = StyleSheet.create({
   itemInput: {
     height: 50,
     padding: 4,
-    // marginRight: 5,
-    fontSize: 23,
+    marginTop: 10,
+    marginBottom: 10,
+    fontSize: 15,
     borderWidth: 1,
     borderColor: 'white',
     borderRadius: 8,
     // color: 'white'
   },
-  buttonText: {
-    fontSize: 18,
-    color: '#111',
-    alignSelf: 'center'
+  imageButton:{
+    backgroundColor:'grey'
+  },
+  addButton:{
+    backgroundColor:'blue',
+    color:'white'
   }
-  ,
-  button: {
-    height: 45,
-    flexDirection: 'row',
-    backgroundColor: 'white',
-    borderColor: 'white',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    marginTop: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  }
+
+
 });

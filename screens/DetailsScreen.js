@@ -3,7 +3,8 @@ import { View, Text, StyleSheet, Alert } from 'react-native';
 import { IconButton, TextInput ,Button} from 'react-native-paper';
 import firestore from '@react-native-firebase/firestore';
 import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
-import * as ImagePicker from 'react-native-image-picker'
+// import * as ImagePicker from 'react-native-image-picker'
+import ImagePicker from 'react-native-image-crop-picker';
 
 let addItem = item => {
   // Alert.alert(item);
@@ -21,16 +22,31 @@ const DetailsScreen = ({ navigation }) => {
   const [name, onChangeText] = React.useState('');
   const [photo, setPhoto] = useState('');
 
-  const handleChoosePhoto = () => {
-    const option = {
-      noData: true
-    };
-    ImagePicker.launchImageLibrary(option, responce => {
-      console.log("responce", responce)
-      // if (responce.uri) {
-      setPhoto(responce)
-      // }
-    })
+  // const handleChoosePhoto = () => {
+  //   const option = {
+  //     noData: true
+  //   };
+  //   ImagePicker.launchImageLibrary(option, responce => {
+  //     console.log("responce", responce)
+  //     // if (responce.uri) {
+  //     setPhoto(responce)
+  //     // }
+  //   })
+  // }
+
+  const choosePhotoFromLibrary = () => {
+    ImagePicker.openPicker({
+      width: 300,
+      height: 300,
+      cropping: true,
+      compressImageQuality: 0.7
+    }).then(image => {
+      console.log("image",image.path);
+      setPhoto(image.path);
+      console.log("photo:", photo)
+      console.log("img:", img)
+      // this.bs.current.snapTo(1);
+    });
   }
 
   const handleSubmit = () => {
@@ -49,8 +65,8 @@ const DetailsScreen = ({ navigation }) => {
           // />)
         }
 
-        <Button title="Choose a Photo" style={styles.imageButton} OnPress={handleChoosePhoto} >
-          <Text style={{color:'white'}}>Choose an image</Text></Button>
+        <Button  style={styles.imageButton} OnPress={choosePhotoFromLibrary} >
+          <Text style={{color:'white'}} >Choose an image</Text></Button>
       </View >
 
       <TextInput style={styles.itemInput} onChangeText={text => onChangeText(text)} placeholder="Add a description" />

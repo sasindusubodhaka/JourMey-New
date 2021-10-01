@@ -166,10 +166,11 @@
      <PaperProvider theme={theme}>
        <AuthContext.Provider value={authContext}>
          <NavigationContainer theme={theme}>
-           {loginState.userToken !== null ? (
+           {loginState.userToken != null ? (
              <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
                <Drawer.Screen name="JourMey" 
                               component={MainTabScreen}
+                              options={{drawerActiveBackgroundColor:'rgb(220,220,220)'}}
                              
               
             />

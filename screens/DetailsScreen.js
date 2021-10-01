@@ -6,12 +6,13 @@ import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handl
 // import * as ImagePicker from 'react-native-image-picker'
 import ImagePicker from 'react-native-image-crop-picker';
 
-let addItem = item => {
+let addItem = (name,photo) => {
   // Alert.alert(item);
   firestore().collection('Items').add({
-    name: item
+    name: name,
+    path: photo
   }).then(function () {
-    Alert.alert('sff')
+    Alert.alert('photo added succesfully')
   }).catch((err) => {
     console.log("error", err)
   })
@@ -21,18 +22,6 @@ const DetailsScreen = ({ navigation }) => {
 
   const [name, onChangeText] = React.useState('');
   const [photo, setPhoto] = useState('');
-
-  // const handleChoosePhoto = () => {
-  //   const option = {
-  //     noData: true
-  //   };
-  //   ImagePicker.launchImageLibrary(option, responce => {
-  //     console.log("responce", responce)
-  //     // if (responce.uri) {
-  //     setPhoto(responce)
-  //     // }
-  //   })
-  // }
 
   const choosePhotoFromLibrary = () => {
     ImagePicker.openPicker({
@@ -50,13 +39,13 @@ const DetailsScreen = ({ navigation }) => {
   }
 
   const handleSubmit = () => {
-    addItem(name);
+    addItem(name,photo);
     // Alert.alert('Item saved successfully')
   }
 
   return (
     <View style={styles.main}>
-      <Text style={styles.title}>Upload a New Image </Text>
+      <Text style={styles.title}>UPLOAD NEW IMAGE </Text>
       <View>
         {
           // photo && (
@@ -65,8 +54,9 @@ const DetailsScreen = ({ navigation }) => {
           // />)
         }
 
-        <Button  style={styles.imageButton} OnPress={choosePhotoFromLibrary} >
-          <Text style={{color:'white'}} >Choose an image</Text></Button>
+        <Button  style={styles.imageButton}  onPress={choosePhotoFromLibrary} >
+          <Text style={{color:'white'}} >Choose an image</Text>
+        </Button>
       </View >
 
       <TextInput style={styles.itemInput} onChangeText={text => onChangeText(text)} placeholder="Add a description" />
@@ -89,12 +79,15 @@ const styles = StyleSheet.create({
     padding: 30,
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: '#ffffff'
+    backgroundColor: 'rgb(220,220,220)'
   },
   title: {
     marginBottom: 20,
     fontSize: 25,
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight:'bold',
+    
+
 
   },
   itemInput: {

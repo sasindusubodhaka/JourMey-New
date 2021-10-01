@@ -1,50 +1,25 @@
 import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, Button } from 'react-native';
-// import * as ImagePicker from 'react-native-image-picker'
-import ImagePicker from 'react-native-image-crop-picker';
-const img = require('../assets/1.jpg')
-
+import { View ,StyleSheet} from 'react-native'
+import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+const LeftContent = props => <Avatar.Icon {...props} source={require('../assets/document.png')} />
 const ExploreScreen = () => {
-  const [photo, setPhoto] = useState('');
-
-  const choosePhotoFromLibrary = () => {
-    ImagePicker.openPicker({
-      width: 300,
-      height: 300,
-      cropping: true,
-      compressImageQuality: 0.7
-    }).then(image => {
-      console.log("image",image.path);
-      setPhoto(image.path);
-      console.log("photo:", photo)
-      console.log("img:", img)
-      // this.bs.current.snapTo(1);
-    });
-  }
-
-  // const handleChoosePhoto = () => {
-  //   const option = {
-  //     noData: true
-  //   };
-  //   ImagePicker.launchImageLibrary(option, responce => {
-  //     console.log("responce",responce)
-  //     // if (responce.uri) {
-  //       setPhoto(responce)
-  //     // }
-  //   })
-  // }
 
   return (
     <View style={styles.container}>
+      <Card>
+        <Card.Title title="About JourMey" subtitle="" left={LeftContent} />
+        <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+        <Card.Content>
+          <Paragraph>We all have special occasions in our life. JourMey helps us to keep them memorable.
+            Take a photo on your camera. Upload it with a description. Then it will be stored safely. Then you can memorize
+            that special occasion  after a few years back
 
-      {/* <Image source={img} style={{ height: 400, margin: 20 }}/> */}
-      <Image source={{uri:photo}} style={{ height: 400, margin: 20 }}/>
-      
-  
-  
-      <Button title="Choose Photo"
-        onPress={choosePhotoFromLibrary} />
-    </View >
+
+          </Paragraph>
+        </Card.Content>
+
+      </Card>
+    </View>
   );
 };
 
@@ -54,7 +29,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    backgroundColor: '#0000ff'
 
   },
 

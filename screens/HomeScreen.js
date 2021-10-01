@@ -4,17 +4,18 @@ import { useTheme } from '@react-navigation/native';
 import Animated from 'react-native-reanimated'
 
 const images = [
-  { id: 1, url: require('../assets/1.jpg'),des:'2018-12-15 at Pidurangala with pataa,gemba, and koka ' },
-  { id: 1, url: require('../assets/2.jpg') ,des:'2018-12-15 at Pidurangala with pataa,gemba, and koka '},
-  { id: 1, url: require('../assets/3.jpg') ,des:'2018-12-15 at Pidurangala with pataa,gemba, and koka '},
-  { id: 1, url: require('../assets/4.jpg') ,des:'2018-12-15 at Pidurangala with pataa,gemba, and koka '},
+  { id: 1, url: require('../assets/p6.jpg'),des:'2018-12-15 at Bozadi river  ' },
+  { id: 1, url: require('../assets/p1.jpg') ,des:'2019-04-19 at Faneez beach '},
+  { id: 1, url: require('../assets/p4.jpg') ,des:'2019-08-12 at Daaffi camp '},
+  { id: 1, url: require('../assets/p5.jpg') ,des:'2020-03-04 at Kaaki Island  '},
+  { id: 1, url: require('../assets/p2.jpg') ,des:'2020-06-09 at Nail Mountain'}
 ]
 const HEADER_HEIGHT = 70;
 
 const HomeScreen = ({ navigation }) => {
 
   return (
-    <View > 
+    <View style={{backgroundColor:'rgb(220,220,220)'}}> 
 
       <Animated.ScrollView
         scrollEventThrottle={16}           

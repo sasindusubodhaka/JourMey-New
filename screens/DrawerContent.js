@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import profile from '../assets/profile.jpg'
+let img = require('../assets/prof1.jpg')
 import {
     useTheme,
     Avatar,
@@ -19,7 +19,7 @@ import {
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import{ AuthContext } from '../components/context';
+import { AuthContext } from '../components/context';
 
 export function DrawerContent(props) {
 
@@ -27,99 +27,75 @@ export function DrawerContent(props) {
 
     const { signOut, toggleTheme } = React.useContext(AuthContext);
 
-    return(
-        <View style={{flex:1}}>
+    return (
+        <View style={{ flex: 1 }}>
             <DrawerContentScrollView {...props}>
                 <View style={styles.drawerContent}>
                     <View style={styles.userInfoSection}>
-                        <View style={{flexDirection:'row',marginTop: 15}}>
-                            <Avatar.Image 
-                                source={{
-                                    uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIeeRxwkwe4aaZ2p3JAI8d1fMbxEOhkd4vvQ&usqp=CAU'
-                                }}
+                        <View style={{ flexDirection: 'row', marginTop: 15 }}>
+                            <Avatar.Image
+                                source={img}
                                 size={50}
                             />
-                            <View style={{marginLeft:15, flexDirection:'column'}}>
+                            <View style={{ marginLeft: 15, flexDirection: 'column' }}>
                                 <Title style={styles.title}>Sasindu Subodhaka</Title>
                                 <Caption style={styles.caption}>@enjoy </Caption>
                             </View>
-                        </View>
-
-                        {/* <View style={styles.row}>
-                            <View style={styles.section}>
-                                <Paragraph style={[styles.paragraph, styles.caption]}>80</Paragraph>
-                                <Caption style={styles.caption}>Following</Caption>
-                            </View>
-                            <View style={styles.section}>
-                                <Paragraph style={[styles.paragraph, styles.caption]}>100</Paragraph>
-                                <Caption style={styles.caption}>Followers</Caption>
-                            </View>
-                        </View> */}
+                        </View>  
                     </View>
 
                     <Drawer.Section style={styles.drawerSection}>
-                        <DrawerItem 
-                            icon={({color, size}) => (
-                                <Icon 
-                                name="home-outline" 
-                                color={color}
-                                size={size}
+                        <DrawerItem
+                            icon={({ color, size }) => (
+                                <Icon
+                                    name="home-outline"
+                                    color={color}
+                                    size={size}
                                 />
                             )}
                             label="Home"
-                            onPress={() => {props.navigation.navigate('Home')}}
+                            onPress={() => { props.navigation.navigate('Home') }}
                         />
-                        <DrawerItem 
-                            icon={({color, size}) => (
-                                <Icon 
-                                name="account-outline" 
-                                color={color}
-                                size={size}
+                        <DrawerItem
+                            icon={({ color, size }) => (
+                                <Icon
+                                    name="account-outline"
+                                    color={color}
+                                    size={size}
                                 />
                             )}
                             label="Profile"
-                            onPress={() => {props.navigation.navigate('Profile')}}
+                            onPress={() => { props.navigation.navigate('Profile') }}
                         />
-                        <DrawerItem 
-                            icon={({color, size}) => (
-                                <Icon 
-                                name="bookmark-outline" 
-                                color={color}
-                                size={size}
+                        <DrawerItem
+                            icon={({ color, size }) => (
+                                <Icon
+                                    name="bookmark-outline"
+                                    color={color}
+                                    size={size}
                                 />
                             )}
                             label="Bookmarks"
-                            onPress={() => {props.navigation.navigate('BookmarkScreen')}}
+                            onPress={() => { props.navigation.navigate('BookmarkScreen') }}
                         />
-                        <DrawerItem 
-                            icon={({color, size}) => (
-                                <Icon 
-                                name="settings-outline" 
-                                color={color}
-                                size={size}
-                                />
-                            )}
-                            label="Settings"
-                            onPress={() => {props.navigation.navigate('SettingsScreen')}}
-                        />
-                        <DrawerItem 
-                            icon={({color, size}) => (
-                                <Icon 
-                                name="account-check-outline" 
-                                color={color}
-                                size={size}
+                        <DrawerItem
+                            icon={({ color, size }) => (
+                                <Icon
+                                    name="account-check-outline"
+                                    color={color}
+                                    size={size}
                                 />
                             )}
                             label="Support"
-                            onPress={() => {props.navigation.navigate('SupportScreen')}}
+                            onPress={() => { props.navigation.navigate('SupportScreen') }}
                         />
                     </Drawer.Section>
                     <Drawer.Section title="Preferences">
-                        <TouchableRipple onPress={() => {toggleTheme()}}>
+                        <TouchableRipple onPress={() => { toggleTheme() }}>
                             <View style={styles.preference}>
                                 <Text>Dark Theme</Text>
                                 <View pointerEvents="none">
-                                    <Switch value={paperTheme.dark}/>
+                                    <Switch value={paperTheme.dark} />
                                 </View>
                             </View>
                         </TouchableRipple>
@@ -127,16 +103,16 @@ export function DrawerContent(props) {
                 </View>
             </DrawerContentScrollView>
             <Drawer.Section style={styles.bottomDrawerSection}>
-                <DrawerItem 
-                    icon={({color, size}) => (
-                        <Icon 
-                        name="exit-to-app" 
-                        color={color}
-                        size={size}
+                <DrawerItem
+                    icon={({ color, size }) => (
+                        <Icon
+                            name="exit-to-app"
+                            color={color}
+                            size={size}
                         />
                     )}
                     label="Sign Out"
-                    onPress={() => {signOut()}}
+                    onPress={() => { signOut() }}
                 />
             </Drawer.Section>
         </View>
@@ -145,10 +121,10 @@ export function DrawerContent(props) {
 
 const styles = StyleSheet.create({
     drawerContent: {
-      flex: 1,
+        flex: 1,
     },
     userInfoSection: {
-      paddingLeft: 20,
+        paddingLeft: 20,
     },
     // title: {
     //   fontSize: 16,
@@ -156,25 +132,25 @@ const styles = StyleSheet.create({
     //   fontWeight: 'bold',
     // },
     caption: {
-      fontSize: 14,
-      lineHeight: 14,
+        fontSize: 14,
+        lineHeight: 14,
     },
     row: {
-      marginTop: 20,
-      flexDirection: 'row',
-      alignItems: 'center',
+        marginTop: 20,
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     section: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      marginRight: 15,
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginRight: 15,
     },
     paragraph: {
-      fontWeight: 'bold',
-      marginRight: 3,
+        fontWeight: 'bold',
+        marginRight: 3,
     },
     drawerSection: {
-      marginTop: 15,
+        marginTop: 15,
     },
     bottomDrawerSection: {
         marginBottom: 15,
@@ -182,9 +158,9 @@ const styles = StyleSheet.create({
         borderTopWidth: 1
     },
     preference: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      paddingVertical: 12,
-      paddingHorizontal: 16,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingVertical: 12,
+        paddingHorizontal: 16,
     },
-  });
+});

@@ -46,7 +46,7 @@ const MainTabScreen = () => (
       component={ProfileScreen}
       options={{
         tabBarLabel: 'Profile',
-        tabBarColor: '#694fad',
+        tabBarColor: '#2F4F4F',
         tabBarIcon: ({ color }) => (
           <Icon name="ios-person" color={color} size={26} />
         ),

@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, Alert } from 'react-native';
 import { IconButton, TextInput ,Button} from 'react-native-paper';
 import firestore from '@react-native-firebase/firestore';
 import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
-// import * as ImagePicker from 'react-native-image-picker'
 import ImagePicker from 'react-native-image-crop-picker';
 
 let addItem = (name,photo) => {

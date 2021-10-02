@@ -134,7 +134,7 @@ const SignInScreen = ({navigation}) => {
                     size={20}
                 />
                 <TextInput 
-                    placeholder="Your Username"
+                    placeholder="Enter Your Username"
                     placeholderTextColor="#666666"
                     style={[styles.textInput, {
                         color: colors.text
@@ -157,7 +157,7 @@ const SignInScreen = ({navigation}) => {
             </View>
             { data.isValidUser ? null : 
             <Animatable.View animation="fadeInLeft" duration={500}>
-            <Text style={styles.errorMsg}>Username must be 4 characters long.</Text>
+            <Text style={styles.errorMsg}>Username too short.</Text>
             </Animatable.View>
             }
             
@@ -173,7 +173,7 @@ const SignInScreen = ({navigation}) => {
                     size={20}
                 />
                 <TextInput 
-                    placeholder="Your Password"
+                    placeholder="Enter Your Password"
                     placeholderTextColor="#666666"
                     secureTextEntry={data.secureTextEntry ? true : false}
                     style={[styles.textInput, {
